@@ -1,5 +1,8 @@
-CREATE TYPE vote.status_participant AS ENUM('En attente', 'Payé chèque', 'Payé espèces', 'Orga', 'Virement bancaire', 'Virement Paypal', 'Guest');
-CREATE TYPE vote.mode_paiement AS ENUM('Chèque', 'Virement', 'Paypal', 'Espèces', 'Autre');
+CREATE TYPE vote.status_participant AS ENUM('EN_ATTENTE', 'PAYE_CHEQUE', 'PAYE_ESPECES', 'VIREMENT_BANCAIRE', 'VIREMENT_PAYPAL', 'ORGA', 'GUEST');
+CREATE TYPE vote.mode_paiement AS ENUM('CHEQUE', 'VIREMENT', 'PAYPAL', 'ESPECES', 'AUTRE');
+
+CREATE CAST (varchar AS vote.status_participant) WITH INOUT AS IMPLICIT;
+CREATE CAST (varchar AS vote.mode_paiement) WITH INOUT AS IMPLICIT;
 
 CREATE TABLE IF NOT EXISTS vote.participants
 (
@@ -21,7 +24,7 @@ CREATE TABLE IF NOT EXISTS vote.participants
     pays character varying(128) COLLATE pg_catalog."default" DEFAULT 'France',
     numero_telephone character varying(32) COLLATE pg_catalog."default" DEFAULT '',
     email character varying(128) COLLATE pg_catalog."default" DEFAULT '',
-    status vote.status_participant DEFAULT 'En attente',
+    status vote.status_participant DEFAULT 'EN_ATTENTE',
     flag_machine boolean DEFAULT true,
     commentaire text,
     flag_jour1 boolean DEFAULT false,
@@ -29,7 +32,7 @@ CREATE TABLE IF NOT EXISTS vote.participants
     flag_jour3 boolean DEFAULT false,
     flag_dodo_sur_place boolean DEFAULT true,
     flag_amigabus boolean DEFAULT false,
-    mode_paiement vote.mode_paiement DEFAULT 'Chèque',
+    mode_paiement vote.mode_paiement DEFAULT 'CHEQUE',
     date_inscription timestamp without time zone NOT NULL DEFAULT now(),
     somme_recue decimal(10,2) DEFAULT '0.00',
     flag_arrive boolean DEFAULT false

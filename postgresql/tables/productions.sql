@@ -1,4 +1,6 @@
-CREATE TYPE vote.type_production AS ENUM('Exécutable', 'Graphe', 'Musique', 'Vidéo', 'Topic', 'Autre');
+CREATE TYPE vote.type_production AS ENUM('EXECUTABLE', 'GRAPHE', 'MUSIQUE', 'VIDEO', 'TOPIC', 'AUTRE');
+
+CREATE CAST (varchar AS vote.type_production) WITH INOUT AS IMPLICIT;
 
 CREATE TABLE IF NOT EXISTS vote.productions
 (
@@ -8,7 +10,7 @@ CREATE TABLE IF NOT EXISTS vote.productions
     flag_actif boolean DEFAULT true,
     numero_participant integer NOT NULL,
     adresse_ip inet NOT NULL,
-    type vote.type_production DEFAULT 'Autre',
+    type vote.type_production DEFAULT 'AUTRE',
     titre character varying(256) COLLATE pg_catalog."default" NOT NULL DEFAULT 'unknown compo entry name',
     auteurs character varying(256) COLLATE pg_catalog."default" NOT NULL DEFAULT 'unknown author(s)',
     groupes character varying(256) COLLATE pg_catalog."default" NOT NULL DEFAULT 'unknown group(s)',
