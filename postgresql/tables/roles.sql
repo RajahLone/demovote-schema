@@ -3,7 +3,6 @@ CREATE TABLE IF NOT EXISTS vote.roles
     date_creation timestamp without time zone NOT NULL DEFAULT now(),
     date_modification timestamp without time zone,
     numero_role integer NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    flag_actif boolean DEFAULT true,
     libelle character varying(64) COLLATE pg_catalog."default" NOT NULL
 )
 TABLESPACE vote;

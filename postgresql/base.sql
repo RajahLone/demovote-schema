@@ -33,8 +33,6 @@ CREATE SCHEMA IF NOT EXISTS vote AUTHORIZATION vote;
 \ir ./tables/variables.sql
 \ir ./tables/evenements.sql
 \ir ./tables/roles.sql
-\ir ./tables/privileges.sql
-\ir ./tables/roles_privileges.sql
 \ir ./tables/participants.sql
 \ir ./tables/participants_roles.sql
 \ir ./tables/messages.sql
