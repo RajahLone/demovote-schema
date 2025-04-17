@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS vote.productions
     plateforme character varying(128) COLLATE pg_catalog."default" NULL DEFAULT '',
     commentaire text,
     informations_privees text,
-    nom_archive character varying(256) COLLATE pg_catalog."default" NOT NULL,
-    archive bytea,
+    nom_archive character varying(256) COLLATE pg_catalog."default",
+    nom_local character varying(256) COLLATE pg_catalog."default",
     vignette bytea,
     numero_version integer DEFAULT 1,
     CONSTRAINT fk_numeroParticipantProduction FOREIGN KEY(numero_participant) REFERENCES vote.participants(numero_participant)
