@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS vote.presentations
     numero_categorie integer NOT NULL,
     numero_production integer NOT NULL,
     numero_ordre integer NOT NULL DEFAULT 0,
+    flag_media integer DEFAULT 0,
     media_mime character varying(128) COLLATE pg_catalog."default",
     media_data bytea,
     nombre_points integer NOT NULL DEFAULT 0,
