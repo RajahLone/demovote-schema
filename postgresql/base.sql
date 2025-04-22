@@ -42,3 +42,4 @@ CREATE SCHEMA IF NOT EXISTS vote AUTHORIZATION vote;
 \ir ./tables/productions.sql
 \ir ./tables/presentations.sql
 \ir ./tables/bulletins.sql
+\ir ./tables/webcams.sql
