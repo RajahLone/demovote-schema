@@ -19,8 +19,8 @@ CREATE DATABASE vote WITH
     OWNER = vote
     TEMPLATE = postgres
     ENCODING = 'UTF8'
-    LC_COLLATE = 'C'
-    LC_CTYPE = 'C'
+    LC_COLLATE = 'fr_FR.UTF-8'
+    LC_CTYPE = 'fr_FR.UTF-8'
     TABLESPACE = vote
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
