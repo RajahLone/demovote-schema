@@ -1,5 +1,7 @@
 CREATE TYPE vote.type_evenement AS ENUM('GENERAL', 'REPAS', 'CONFERENCE', 'DEMOPARTY', 'DIVERS');
 
+CREATE CAST (varchar AS vote.type_evenement) WITH INOUT AS IMPLICIT;
+
 DROP TABLE IF EXISTS vote.evenements CASCADE;
 
 CREATE TABLE IF NOT EXISTS vote.evenements
