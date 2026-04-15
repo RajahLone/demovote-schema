@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS vote.evenements
 (
     date_creation timestamp without time zone NOT NULL DEFAULT now(),
     date_modification timestamp without time zone,
-    numero_evenement integer NOT NULL PRIMARY KEY,
+    numero_evenement integer NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     date_debut timestamp without time zone NOT NULL DEFAULT now(),
     date_fin timestamp without time zone,
     type vote.type_evenement DEFAULT 'GENERAL',
